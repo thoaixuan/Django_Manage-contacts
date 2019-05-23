@@ -1,0 +1,52 @@
+
+{% load static %}
+{% if contact.gender == 'male' %}
+<!-- Card for details -->
+  <div class="card my-2 mx-2 boy-card {% if 'detail' in request.path%}mx-auto w-25{%endif%}">
+    <img src="{% if contact.image %}
+    {{contact.image.url}}
+    {% else %}
+    {% static './images/boy.png' %}
+    {% endif %}" class="img-fluid" />
+    <div class="card-header">
+      <a href="{% url 'detail' contact.id %}" class="text-white header-link"
+        ><i class="fas fa-mars mr-2"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="mars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="svg-inline--fa fa-mars fa-w-12 fa-spin fa-lg"><path fill="currentColor" d="M372 64h-79c-10.7 0-16 12.9-8.5 20.5l16.9 16.9-80.7 80.7c-22.2-14-48.5-22.1-76.7-22.1C64.5 160 0 224.5 0 304s64.5 144 144 144 144-64.5 144-144c0-28.2-8.1-54.5-22.1-76.7l80.7-80.7 16.9 16.9c7.6 7.6 20.5 2.2 20.5-8.5V76c0-6.6-5.4-12-12-12zM144 384c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z" class=""></path></svg></i> {{contact.name}}</a
+      >
+    </div>
+    <div class="card-body pb-0">
+      <p>
+        <i class="fas fa-at mr-2"></i>
+        <a href="mailto:{{contact.name}}">{{contact.email}}</a>
+      </p>
+      <p>
+        <i class="fas fa-phone mr-2"></i>
+        <a href="tel:{{contact.phone}}">{{contact.phone}}</a>
+      </p>
+      <p><i class="fas fa-info-circle mr-2"></i> {{contact.info}}</p>
+    </div>
+  </div>
+{% else %}
+<div class="card my-2 mx-2 girl-card">
+    <img src="{% if contact.image %}
+    {{contact.image.url}}
+    {% else %}
+    {% static './images/girl.png' %}
+    {% endif %}" class="img-fluid" />
+    <div class="card-header">
+      <a href="{% url 'detail' contact.id %}" class="text-white header-link"
+        ><i class="fas fa-mercury"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="mercury" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 512" class="svg-inline--fa fa-mercury fa-w-9 fa-spin fa-lg"><path fill="currentColor" d="M288 208c0-50.3-25.8-94.6-65-120.4 3.2-2.2 6.2-4.6 9.2-7.2 21.1-18.1 34.1-41.4 37.5-66.8 1-7.2-4.6-13.6-11.9-13.6h-24.3c-5.7 0-10.7 4-11.8 9.7C216 40.4 183.3 64 144 64S72 40.4 66.2 9.7C65.2 4 60.2 0 54.5 0H30.1c-7.3 0-12.9 6.4-11.9 13.6C21.7 39 34.7 62.4 55.8 80.4c3 2.5 6 4.9 9.2 7.2C25.8 113.4 0 157.7 0 208c0 71.6 52.2 130.9 120.6 142.1-.4 1.2-.6 2.4-.6 3.7V408H76c-6.6 0-12 5.4-12 12v24c0 6.6 5.4 12 12 12h44v44c0 6.6 5.4 12 12 12h24c6.6 0 12-5.4 12-12v-44h44c6.6 0 12-5.4 12-12v-24c0-6.6-5.4-12-12-12h-44v-54.2c0-1.3-.2-2.6-.6-3.7C235.8 338.9 288 279.6 288 208zm-144 96c-52.9 0-96-43.1-96-96s43.1-96 96-96 96 43.1 96 96-43.1 96-96 96z" class=""></path></svg></i> {{contact.name}}</a
+      >
+    </div>
+    <div class="card-body pb-0">
+      <p>
+        <i class="fas fa-at mr-2"></i>
+        <a href="mailto:{{contact.name}}">{{contact.email}}</a>
+      </p>
+      <p>
+        <i class="fas fa-phone mr-2"></i>
+        <a href="tel:{{contact.phone}}">{{contact.phone}}</a>
+      </p>
+      <p><i class="fas fa-info-circle mr-2"></i> {{contact.info}}</p>
+    </div>
+  </div>
+{% endif %}

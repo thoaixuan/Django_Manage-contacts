@@ -1,0 +1,15 @@
+ Id CommandLine
+  -- -----------
+   1 python .\manage.py runserver
+   2 python .\manage.py makemigrations
+   3 python .\manage.py migrate
+   4 python .\manage.py startapp app
+   5 python .\manage.py makemigrations
+   6 django-admin makemigrations
+   7 django-admin migrate
+   8 clear
+   9 python .\manage.py runserver
+  10 python .\manage.py runserver
+  11 pip install Pillow
+  12 clear
+  13 python .\manage.py createsuperuser
